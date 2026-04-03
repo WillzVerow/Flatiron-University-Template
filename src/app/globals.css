@@ -1,0 +1,119 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+@import "dither-plugin";
+
+@theme inline {
+  /* Semantic color tokens — mapped to :root CSS variables */
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-border: var(--border);
+  --color-ring: var(--ring);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+
+  /* Illustration tokens — for decorative TailArk illustrations */
+  --color-illustration: var(--illustration);
+  --color-border-illustration: var(--border-illustration);
+
+  /* Font tokens — Poppins and mono accent */
+  --font-primary: var(--font-primary-var);
+  --font-geist-mono: var(--font-geist-mono-var);
+
+  /* === BRAND COLORS === */
+  --color-brand-primary: #562B83;
+  --color-brand-accent: #F9F7F4;
+  --color-brand-dark: #3A1C59;
+  --color-brand-light: #FFF5FF;
+
+  /* Custom radius */
+  --radius-pill: 100px;
+}
+
+:root {
+  --background: #F9F7F4;
+  --foreground: #1a1a1a;
+  --primary: #562B83;
+  --primary-foreground: #ffffff;
+  --muted: #F0EDE8;
+  --muted-foreground: #6B6B6B;
+  --card: #FFFFFF;
+  --card-foreground: #1a1a1a;
+  --border: #E5E2DB;
+  --ring: #562B83;
+  --popover: #FFFFFF;
+  --popover-foreground: #1a1a1a;
+  --secondary: #F0EDE8;
+  --secondary-foreground: #1a1a1a;
+  --destructive: #E72077;
+  --destructive-foreground: #ffffff;
+  --accent: #7B3FA6;
+  --accent-foreground: #ffffff;
+  --illustration: #F0EDE8;
+  --border-illustration: #E5E2DB;
+}
+
+/* CRITICAL: Tailwind v4 defaults border-color to currentColor (black).
+   This reset ensures borders use the theme border color instead. */
+@layer base {
+  *,
+  ::after,
+  ::before,
+  ::file-selector-button {
+    border-color: var(--color-border);
+  }
+}
+
+body {
+  background-color: var(--color-background);
+  color: var(--color-foreground);
+  font-family: var(--font-primary);
+}
+
+/* Skip-to-content accessibility link */
+.skip-to-content {
+  position: absolute;
+  left: -9999px;
+  top: auto;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  z-index: 9999;
+}
+.skip-to-content:focus {
+  position: fixed;
+  top: 1rem;
+  left: 1rem;
+  width: auto;
+  height: auto;
+  padding: 0.75rem 1.5rem;
+  background: var(--color-primary);
+  color: var(--color-primary-foreground);
+  border-radius: 0.5rem;
+  font-weight: 600;
+  text-decoration: none;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.15);
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  ::before,
+  ::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
