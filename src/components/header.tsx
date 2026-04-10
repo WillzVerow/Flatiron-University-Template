@@ -25,8 +25,8 @@ interface MobileLink {
 
 const features: FeatureLink[] = [
     {
-        href: '/bootcamps/ai-data-science',
-        name: 'AI & Data Science',
+        href: '/bootcamps/artificial-intelligence',
+        name: 'Artificial Intelligence',
         description: 'Build models, analyze data, launch a tech career',
     },
     {
@@ -77,10 +77,10 @@ const mobileLinks: MobileLink[] = [
         links: features,
     },
     {
-        groupName: 'About',
-        links: [...useCases, ...contentLinks],
+        groupName: 'Resources',
+        links: useCases,
     },
-    { name: 'Alumni', href: '/alumni' },
+    { name: 'About', href: '/about' },
     { name: 'Apply Now', href: '/apply' },
 ]
 
@@ -114,7 +114,7 @@ export function Header() {
                             {isLarge && <NavMenu />}
                             <button
                                 onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-                                aria-label={isMobileMenuOpen == true ? 'Close Menu' : 'Open Menu'}
+                                aria-label={isMobileMenuOpen ? 'Close Menu' : 'Open Menu'}
                                 className="relative z-20 -m-2.5 -mr-3 block cursor-pointer p-2.5 lg:hidden">
                                 <Menu className="in-data-[state=active]:rotate-180 in-data-[state=active]:scale-0 in-data-[state=active]:opacity-0 m-auto size-5 duration-200" />
                                 <X className="in-data-[state=active]:rotate-0 in-data-[state=active]:scale-100 in-data-[state=active]:opacity-100 absolute inset-0 m-auto size-5 -rotate-180 scale-0 opacity-0 duration-200" />
@@ -206,10 +206,9 @@ const NavMenu = () => {
             <NavigationMenuList className="gap-3">
                 <NavigationMenuItem>
                     <NavigationMenuTrigger>Programs</NavigationMenuTrigger>
-                    <NavigationMenuContent className="min-w-3xl grid grid-cols-3 divide-x p-1">
-                        <div className="col-span-2 p-3">
-                            <span className="text-muted-foreground ml-4 text-xs font-medium">Bootcamps</span>
-                            <ul className="mt-2 grid grid-cols-2">
+                    <NavigationMenuContent className="min-w-md p-1">
+                        <div className="p-3">
+                            <ul>
                                 {features.map((feature, index) => (
                                     <ListItem
                                         key={index}
@@ -220,9 +219,13 @@ const NavMenu = () => {
                                 ))}
                             </ul>
                         </div>
+                    </NavigationMenuContent>
+                </NavigationMenuItem>
+                <NavigationMenuItem>
+                    <NavigationMenuTrigger>Resources</NavigationMenuTrigger>
+                    <NavigationMenuContent className="min-w-md p-1">
                         <div className="p-3">
-                            <span className="text-muted-foreground ml-4 text-xs font-medium">Resources</span>
-                            <ul className="mt-2">
+                            <ul>
                                 {useCases.map((useCase, index) => (
                                     <ListItem
                                         key={index}
@@ -236,51 +239,10 @@ const NavMenu = () => {
                     </NavigationMenuContent>
                 </NavigationMenuItem>
                 <NavigationMenuItem>
-                    <NavigationMenuTrigger>About</NavigationMenuTrigger>
-                    <NavigationMenuContent className="min-w-lg grid grid-cols-2 divide-x p-1">
-                        <div className="p-3">
-                            <span className="text-muted-foreground ml-4 text-xs font-medium">The Experience</span>
-                            <ul className="mt-2">
-                                {useCases.map((useCase, index) => (
-                                    <ListItem
-                                        key={index}
-                                        href={useCase.href}
-                                        title={useCase.name}
-                                        description={useCase.description}
-                                    />
-                                ))}
-                            </ul>
-                        </div>
-                        <div className="p-3">
-                            <span className="text-muted-foreground ml-4 text-xs font-medium">More</span>
-                            <ul className="mt-2">
-                                {contentLinks.map((content, index) => (
-                                    <NavigationMenuLink
-                                        key={index}
-                                        asChild>
-                                        <Link
-                                            href={content.href}
-                                            className="px-3">
-                                            <div className="text-foreground text-sm font-medium">{content.name}</div>
-                                        </Link>
-                                    </NavigationMenuLink>
-                                ))}
-                            </ul>
-                        </div>
-                    </NavigationMenuContent>
-                </NavigationMenuItem>
-                <NavigationMenuItem>
                     <NavigationMenuLink
                         asChild
                         className={navigationMenuTriggerStyle()}>
-                        <Link href="/alumni">Alumni</Link>
-                    </NavigationMenuLink>
-                </NavigationMenuItem>
-                <NavigationMenuItem>
-                    <NavigationMenuLink
-                        asChild
-                        className={navigationMenuTriggerStyle()}>
-                        <Link href="/apply">Apply</Link>
+                        <Link href="/about">About</Link>
                     </NavigationMenuLink>
                 </NavigationMenuItem>
             </NavigationMenuList>

@@ -4,12 +4,12 @@ import Image from 'next/image'
 import { cn } from '@/lib/utils'
 import { useEffect, useRef, useState } from 'react'
 import { AnimatePresence, motion } from 'motion/react'
-import { Bot, Brain, Hourglass, ShieldCheck } from 'lucide-react'
+import { Shield, Brain, Hourglass, ShieldCheck } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import Link from 'next/link'
 import { Container } from '@/components/container'
-import AgentFeedbackIllustration from "@/components/ui/illustrations/agent-feedback-illustration"
-import EmailIllustration from "@/components/ui/illustrations/email-illustration"
+import { CybersecurityIllustration } from "@/components/illustrations/cybersecurity-illustration"
+import { ModelSelectorIllustration } from "@/components/illustrations/model-selector"
 
 const Metrics = () => {
     return (
@@ -66,17 +66,19 @@ const features = [
         label: 'Artificial Intelligence',
         description: 'Build machine learning models, analyze real datasets, and learn the tools used by data teams at top companies like Google, Meta, and NASA.',
         icon: Brain,
+        href: '/bootcamps/artificial-intelligence',
         supportiveContent: <Metrics />,
-        illustration: <EmailIllustration key="m3" />,
+        illustration: <ModelSelectorIllustration key="m3" />,
         image: 'https://images.unsplash.com/photo-1600223260976-32a509b23602?q=80&w=2340&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
     },
     {
-        title: 'Build full-stack applications from the ground up',
-        label: 'Software Engineering',
-        description: 'Learn to code with modern frameworks, build production-ready apps, and develop the skills top employers are looking for.',
-        icon: Bot,
+        title: 'Defend networks, systems, and data from cyber threats',
+        label: 'Cybersecurity',
+        description: 'Learn threat detection, incident response, and security operations — the skills protecting organizations from breaches worldwide.',
+        icon: Shield,
+        href: '/bootcamps/cybersecurity',
         supportiveContent: <ShadTestimonial />,
-        illustration: <AgentFeedbackIllustration key="m4" />,
+        illustration: <CybersecurityIllustration key="m4" />,
         image: 'https://images.unsplash.com/photo-1712942107059-0ef8ba9efbf9?q=80&w=2340&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
     },
 ]
@@ -150,7 +152,7 @@ export function PlatformFeatures() {
                                         asChild
                                         variant="outline"
                                         size="sm">
-                                        <Link href="/apply">
+                                        <Link href={features[expandedIndex].href}>
                                             Learn more <span className="border-l-foreground/50 ml-0.5 block size-0 border-y-4 border-l-4 border-y-transparent" />
                                         </Link>
                                     </Button>
