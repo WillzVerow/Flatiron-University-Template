@@ -1,6 +1,6 @@
 import { Users, GraduationCap, Briefcase } from 'lucide-react'
-import { MapIllustration } from '@/components/illustrations/map-illustration'
-import { VisualizationIllustration } from '@/components/illustrations/visualization-illustration'
+import { MessageStreamIllustration } from '@/components/illustrations/message-stream'
+import { Kanban3Illustration } from '@/components/illustrations/kanban-3'
 import { Container } from '@/components/container'
 
 export function AnalyticsFeatures() {
@@ -21,8 +21,8 @@ export function AnalyticsFeatures() {
                 <div className="relative">
                     <div className="@4xl:grid-cols-2 @4xl:*:p-8 @5xl:*:p-12 @max-4xl:divide-y @4xl:divide-x grid border-b *:p-4">
                         <div className="row-span-2 grid grid-rows-subgrid gap-8">
-                            <div className="mask-radial-from-35% @4xl:-mx-12 relative self-center">
-                                <MapIllustration />
+                            <div className="@4xl:px-8 mx-auto w-full max-w-md self-center">
+                                <MessageStreamIllustration />
                             </div>
                             <div className="mx-auto max-w-sm text-center">
                                 <h3 className="text-balance font-semibold">Student Experience</h3>
@@ -31,7 +31,7 @@ export function AnalyticsFeatures() {
                         </div>
                         <div className="row-span-2 grid grid-rows-subgrid gap-8">
                             <div className="@4xl:px-8 mx-auto w-full max-w-md self-center">
-                                <VisualizationIllustration />
+                                <Kanban3Illustration />
                             </div>
 
                             <div className="relative z-10 mx-auto max-w-sm text-center">
